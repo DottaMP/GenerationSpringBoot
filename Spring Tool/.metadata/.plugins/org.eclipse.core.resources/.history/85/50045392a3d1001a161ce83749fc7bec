@@ -1,0 +1,5 @@
+package com.minhaescola.db_escola.repository;
+
+public interface turmaRepository {
+
+}

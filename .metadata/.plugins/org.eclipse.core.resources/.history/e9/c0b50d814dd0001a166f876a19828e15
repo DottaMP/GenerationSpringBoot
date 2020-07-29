@@ -1,0 +1,12 @@
+package com.aprendendo.drogaria.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController("/drogaria")
+public class DrogariaController {
+	@RequestMapping("/olá")
+	public String mensagem() {
+		return "Olá Pessoal";
+	}
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\mayar\Documents\workspace-spring-tool-suite-4-4.7.0.RELEASE\Spring Tool\Spring Boot\helloobjetivos"/>
+			<item value="C:\Users\mayar\Documents\workspace-spring-tool-suite-4-4.7.0.RELEASE\Spring Tool\Spring Boot\hello\hello"/>
+			<item value="C:\sts-4.7.0.RELEASE\workspace-spring-tool-suite-4-4.7.0.RELEASE\Spring Tool\helloobjetivos"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+</section>
