@@ -7,6 +7,5 @@ import com.minhaescola.db_escola.model.turma;
 
 @Repository
 public interface turmaRepository extends JpaRepository<turma, Long> { /*comunicação entre bd e api*/
-	public List<turma> findAllByturmaContainingIgnoreCase(String turma);
-
+	
 }

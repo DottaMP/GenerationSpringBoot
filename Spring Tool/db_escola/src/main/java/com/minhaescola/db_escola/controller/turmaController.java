@@ -19,40 +19,36 @@ import com.minhaescola.db_escola.model.turma;
 import com.minhaescola.db_escola.repository.turmaRepository;
 
 @RestController
-@RequestMapping("/turmas")
+@RequestMapping("/turma")
 @CrossOrigin("*")
 public class turmaController {
-	
+
 	@Autowired
-		private turmaRepository repository;
+	private turmaRepository repository;
 	
 	@GetMapping
-		public ResponseEntity<List<turma>> GetAll(){
-			return ResponseEntity.ok(repository.findAll());
+	public ResponseEntity<List<turma>> listarTurmas(){ //findAll()
+		return ResponseEntity.ok(repository.findAll());
 	}
 	
 	@GetMapping("/{id}")
-		public ResponseEntity<turma> GetById(@PathVariable long id){
-			return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
-		}
-		
-	@GetMapping("/turma/{turma}")
-		public ResponseEntity<List<turma>> GetByturma(@PathVariable String turma){
-			return ResponseEntity.ok(repository.findAllByturmaContainingIgnoreCase(turma));
-		}
+	public ResponseEntity<turma> listarTurmaPorId(@PathVariable long id){ //findById()
+		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
+	}
 	
 	@PostMapping
-	public ResponseEntity<turma> post (@RequestBody turma turma){
+	public ResponseEntity<turma> incluirTurma(@RequestBody turma turma){ //postBody
+		
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(turma));
 	}
 	
 	@PutMapping
-	public ResponseEntity<turma> put (@RequestBody turma turma){
+	public ResponseEntity<turma> atualizarTurma(@RequestBody turma turma){ //putBody
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(turma));
 	}
 	
-	@DeleteMapping ("/{id}")
-	 public void delete (@PathVariable long id) {
+	@DeleteMapping("/{id}")
+	public void deletarTurma(@PathVariable long id){
 		repository.deleteById(id);
 	}
 }
