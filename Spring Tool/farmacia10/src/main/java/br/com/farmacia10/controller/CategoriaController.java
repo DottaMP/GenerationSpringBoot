@@ -26,8 +26,8 @@ public class CategoriaController {
 	@Autowired
 	private CategoriaRepository repository;
 	
-	@GetMapping("/buscaCategoria") //Buscar específica após o /categoria
-	public ResponseEntity<List<CategoriaModel>> listarCategoria (){//Como se fosse a resposta de um formulário em forma de lista, seguido de um método em forme de verbo
+	@GetMapping("/buscaCategoria") //Busca específica após o /categoria
+	public ResponseEntity<List<CategoriaModel>> listarCategoria (){//Como se fosse a resposta de um formulário em forma de lista, seguido de um método em forma de verbo
 		return ResponseEntity.ok(repository.findAll());  //O 'ok' traz o status ok (200), desse formulário eu quero trazer o repository da categoria
 	}
 	

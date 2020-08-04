@@ -26,8 +26,8 @@ public class ProdutoController {
 	@Autowired
 	private ProdutoRepository repository;
 	
-	@GetMapping("/buscaProduto") //Buscar específica após o /categoria
-	public ResponseEntity<List<ProdutoModel>> listarProduto (){//Como se fosse a resposta de um formulário em forma de lista, seguido de um método em forme de verbo
+	@GetMapping("/buscaProduto") //Busca específica após o /categoria
+	public ResponseEntity<List<ProdutoModel>> listarProduto (){//Como se fosse a resposta de um formulário em forma de lista, seguido de um método em forma de verbo
 		return ResponseEntity.ok(repository.findAll());  //O 'ok' traz o status ok (200), desse formulário eu quero trazer o repository da categoria
 	}
 	
