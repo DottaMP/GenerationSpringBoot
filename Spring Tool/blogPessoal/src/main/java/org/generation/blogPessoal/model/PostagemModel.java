@@ -19,9 +19,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.sun.istack.NotNull;
 
 @Entity
-@Table(name="postagem")
+@Table(name="tb_postagem")
 
-public class Postagem {
+public class PostagemModel {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -39,7 +39,7 @@ public class Postagem {
 	
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
-	private Tema tema;
+	private TemaModel tema;
 	
 	public long getId() {
 		return id;
@@ -65,10 +65,10 @@ public class Postagem {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Tema getTema() {
+	public TemaModel getTema() {
 		return tema;
 	}
-	public void setTema(Tema tema) {
+	public void setTema(TemaModel tema) {
 		this.tema = tema;
 	}
 }

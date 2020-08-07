@@ -2,7 +2,7 @@ package org.generation.blogPessoal.controller;
 
 import java.util.List;
 
-import org.generation.blogPessoal.model.Postagem;
+import org.generation.blogPessoal.model.PostagemModel;
 import org.generation.blogPessoal.repository.PostagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/postagens")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 
 public class PostagemController {
 	
@@ -27,28 +27,28 @@ public class PostagemController {
 	private PostagemRepository repository;
 	
 	@GetMapping
-	public ResponseEntity<List<Postagem>> GetAll(){
+	public ResponseEntity<List<PostagemModel>> GetAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
 	@GetMapping("/{id}")
-		public ResponseEntity<Postagem> GetById(@PathVariable long id){
+		public ResponseEntity<PostagemModel> GetById(@PathVariable long id){
 			return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
 					.orElse(ResponseEntity.notFound().build());
 	}
 	
 	@GetMapping("/titulo/{titulo}")
-	public ResponseEntity<List<Postagem>> GetByTitulo(@PathVariable String titulo){
+	public ResponseEntity<List<PostagemModel>> GetByTitulo(@PathVariable String titulo){
 		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
 	}
 	
 	@PostMapping
-	public ResponseEntity<Postagem> post (@RequestBody Postagem postagem){
+	public ResponseEntity<PostagemModel> post (@RequestBody PostagemModel postagem){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
 	}
 	
 	@PutMapping
-	public ResponseEntity<Postagem> put (@RequestBody Postagem postagem){
+	public ResponseEntity<PostagemModel> put (@RequestBody PostagemModel postagem){
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
 	}
 	

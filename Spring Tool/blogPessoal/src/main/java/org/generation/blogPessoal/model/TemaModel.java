@@ -16,7 +16,7 @@ import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "tb_tema")
-public class Tema {
+public class TemaModel {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +27,7 @@ public class Tema {
 	
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("tema")
-	private List<Postagem> postagem;
+	private List<PostagemModel> postagem;
 
 	public long getId() {
 		return id;
@@ -45,11 +45,11 @@ public class Tema {
 		this.descricao = descricao;
 	}
 
-	public List<Postagem> getPostagem() {
+	public List<PostagemModel> getPostagem() {
 		return postagem;
 	}
 
-	public void setPostagem(List<Postagem> postagem) {
+	public void setPostagem(List<PostagemModel> postagem) {
 		this.postagem = postagem;
 	}
 
